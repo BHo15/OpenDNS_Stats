@@ -29,7 +29,7 @@ Set network = CreateObject("WScript.Network")
 
 
 If Not WScript.FullName = CurrentPath & "cscript.exe" Then
-	oShell.Run "cmd.exe /c" & WScript.Path & "\cscript.exe //NOLOGO " & Chr(34) & "FetchStats.vbs" & Chr(34) & " " & Chr(34) & strEmail _
+	oShell.Run "cmd.exe /c" & WScript.Path & "\cscript.exe //NOLOGO " & Chr(34) & "TweakedFetch.vbs" & Chr(34) & " " & Chr(34) & strEmail _
 	& Chr(34) & " " & Chr(34) & strNetwork & Chr(34) & " " & Chr(34) & BDate & Chr(34) & " " & Chr(34) & EDate & Chr(34) & " " _
 	& Chr(34) & strP & Chr(34) & " >DNLD.csv"
     WScript.Quit 0
@@ -74,6 +74,7 @@ Function Check()
 						EncP=fCrypt(strP,strK)
 					Else
 						EncP=""
+						strP=""
 					End If
 				End If
 				strNextLine="use=1"
@@ -101,6 +102,9 @@ Function Check()
 		 If intLineFinder<>"0" Then
 			If EncP<>"" Then
 				strNextLine="appPW=" & EncP
+			Else
+				EncP=Trim(Mid(strNextLine,Instr(strNextLine,"PW=")+3,50))
+				strP=fCrypt(EncP,strK)
 			End If
 		 End If
 				

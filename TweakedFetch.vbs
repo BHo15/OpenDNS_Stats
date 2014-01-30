@@ -1,4 +1,4 @@
-' Modified from OpenDNS Stats Fetch for Windows  Brad Hodge <brad.h.hodge@gmail.com>
+' Modified from OpenDNS-Fetch for Windows  Brad Hodge <brad.h.hodge@gmail.com>
 ' 	Based on original fetchstats script from Richard Crowley
 ' 	Brian Hartvigsen <brian.hartvigsen@opendns.com>
 
